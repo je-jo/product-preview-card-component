@@ -6,31 +6,38 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Montserrat:wght@500;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/styles.css">
     <title>Frontend Mentor | Product preview card component</title>
 </head>
 
 <body>
-    <header>
+    <header class="sr-only">
+        <h1>Frontend Mentor | Product preview card component</h1>
     </header>
     <main>
-
-        Preview
-
-        Gabrielle Essence Eau De Parfum
-
-        A floral, solar and voluptuous interpretation composed by Olivier Polge,
-        Perfumer-Creator for the House of CHANEL.
-
-        $149.99
-        $169.99
-
-        Add to Cart
-
+        <div class="card">
+            <div class="card__image">
+                <img src="/assets/images/image-product-mobile.jpg" alt="">
+            </div>
+            <div class="card__content">
+                <p class="lead">Perfume</p>
+                <h2>Gabrielle Essence Eau De Parfum</h2>
+                <p>A floral, solar and voluptuous interpretation composed by Olivier Polge,
+                    Perfumer-Creator for the House of CHANEL.</p>
+                <p class="price"><span class="new">$149.99</span><span class="old">$169.99</span></p>
+                <button class="btn"><span class="icon"></span>Add to Cart</button>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="attribution">
-            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. Coded
+            Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+            Coded
             by <a href="https://github.com/je-jo">Jelena Jovicic</a>, 2022.
         </div>
     </footer>

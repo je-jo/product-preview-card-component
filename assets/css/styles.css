@@ -1,10 +1,220 @@
-.attribution {
-    font-size: 11px;
-    text-align: center;
+/*reset*/
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-.attribution a {
-    color: hsl(228, 45%, 44%);
+* {
+    margin: 0;
+    padding: 0;
+    /* outline: 1px solid blue; */
+}
+
+:focus {
+    outline: 2px dotted var(--clr-cta);
+    outline-offset: 2px;
+    transition: var(--transition);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    html {
+        scroll-behavior: initial;
+    }
+}
+
+/*theme*/
+
+:root {
+    --clr-cta: hsl(158, 36%, 37%);
+    --clr-cta-accent: hsl(156, 42%, 18%);
+    --clr-light: hsl(30, 38%, 92%);
+    --clr-dark: hsl(228, 12%, 48%);
+    --clr-white: hsl(0, 0%, 100%);
+    --clr-very-dark-blue: hsl(212, 21%, 14%);
+    --fs-h2: 2rem;
+    --fs-h3: 1.15rem;
+    --fs-text: 0.9rem;
+    --fs-lead: 0.8rem;
+    --border-radius: 0.5rem;
+    --transition: ease background-color .2s;
+}
+
+/*layout*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 100%;
+    line-height: 1.4;
+    background-color: var(--clr-light);
+    color: var(--clr-dark);
+}
+
+main {
+    width: min(100%, 45rem);
+    margin: 0 auto;
+    padding: 1rem;
+    flex-grow: 1;
+    display: grid;
+    place-items: center;
+}
+
+footer {
+    width: 100%;
+    margin-top: auto;
+    padding: 0.5em;
+    place-self: center;
+    text-align: center;
+    font-size: 11px;
+}
+
+/* footer a {
+    color: var(--clr-very-dark-blue);
+} */
+
+/*utilities*/
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/*typography */
+
+h2 {
+    font-family: 'Fraunces', serif;
+    font-size: var(--fs-h2);
+    color: var(--clr-very-dark-blue);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.5em;
+}
+
+p {
+    font-size: var(--fs-text);
+}
+
+.lead {
+    font-size: var(--fs-lead);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 0.5em;
+}
+
+.price {
+    display: flex;
+    place-items: center;
+    margin: 2em 0 1em;
+}
+
+.new {
+    font-size: 2rem;
+    font-family: 'Fraunces', serif;
+    color: var(--clr-cta);
+}
+
+.old {
+    font-size: var(--fs-text);
+    text-decoration: line-through;
+    margin-left: 1rem;
+}
+
+a {
+    color: var(--clr-cta);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--clr-cta-accent);
+    text-decoration: underline;
+    text-underline-offset: 0.2rem;
+}
+
+/*buttons*/
+
+.btn {
+    display: flex;
+    align-items: center;
+    align-self: start;
+    justify-content: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.25em 1em;
+    transition: var(transition);
+    border: 2px solid var(--clr-cta);
+    border-radius: var(--border-radius);
+    background-color: var(--clr-cta);
+    color: var(--clr-white);
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.icon {
+    background: url(/assets/images/icon-cart.svg) no-repeat left center;
+    height: 1rem;
+    padding-left: 1.5rem;
+}
+
+.btn:hover {
+    background-color: var(--clr-cta-accent);
+    border: 2px solid var(--clr-cta-accent);
+}
+
+/*card*/
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border-radius: var(--border-radius);
+    background-color: var(--clr-white);
+}
+
+.card__image img {
+    width: 100%;
+    min-height: 240px;
+    object-fit: cover;
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.card__content {
+    padding: 1.5em;
 }
 
 /*# Front-end Style Guide
@@ -15,31 +225,3 @@ The designs were created to the following widths:
 
 - Mobile: 375px
 - Desktop: 1440px
-
-## Colors
-
-### Primary
-
-- Dark cyan: hsl(158, 36%, 37%)
-- Cream: hsl(30, 38%, 92%)
-
-### Neutral
-
-- Very dark blue: hsl(212, 21%, 14%)
-- Dark grayish blue: hsl(228, 12%, 48%)
-- White: hsl(0, 0%, 100%)
-
-## Typography
-
-### Body Copy
-
-- Font size (paragraph): 14px
-
-### Font
-
-- Family: [Montserrat](https://fonts.google.com/specimen/Montserrat)
-- Weights: 500, 700
-
-- Family: [Fraunces](https://fonts.google.com/specimen/Fraunces)
-- Weights: 700
-*/
