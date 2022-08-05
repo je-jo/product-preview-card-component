@@ -212,7 +212,7 @@ a:hover {
 .card__image {
     width: 100%;
     min-height: 240px;
-    background: center / cover no-repeat url(../images/image-product-mobile.jpg);
+    background: center / cover no-repeat url(assets/images/image-product-mobile.jpg);
 }
 
 .card__content {
@@ -230,6 +230,6 @@ a:hover {
 
     .card__image {
         min-height: 450px;
-        background: center / cover no-repeat url(../images/image-product-desktop.jpg);
+        background: center / cover no-repeat url(assets/images/image-product-desktop.jpg);
     }
 }
