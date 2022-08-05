@@ -9,7 +9,6 @@
 * {
     margin: 0;
     padding: 0;
-    /* outline: 1px solid blue; */
 }
 
 :focus {
@@ -46,18 +45,18 @@ img {
 /*theme*/
 
 :root {
-    --clr-cta: hsl(158, 36%, 37%);
-    --clr-cta-accent: hsl(156, 42%, 18%);
     --clr-light: hsl(30, 38%, 92%);
     --clr-dark: hsl(228, 12%, 48%);
+    --clr-cta: hsl(158, 36%, 37%);
+    --clr-cta-accent: hsl(156, 42%, 18%);
     --clr-white: hsl(0, 0%, 100%);
     --clr-very-dark-blue: hsl(212, 21%, 14%);
     --fs-h2: 2rem;
-    --fs-h3: 1.15rem;
     --fs-text: 0.9rem;
-    --fs-lead: 0.8rem;
+    --fs-lead: 0.7rem;
+    --fs-small: 0.6875rem;
     --border-radius: 0.5rem;
-    --transition: ease background-color .2s;
+    --transition: ease all .2s;
 }
 
 /*layout*/
@@ -74,7 +73,6 @@ body {
 }
 
 main {
-    width: min(100%, 45rem);
     margin: 0 auto;
     padding: 1rem;
     flex-grow: 1;
@@ -88,12 +86,11 @@ footer {
     padding: 0.5em;
     place-self: center;
     text-align: center;
-    font-size: 11px;
 }
 
-/* footer a {
-    color: var(--clr-very-dark-blue);
-} */
+footer p {
+    font-size: var(--fs-small);
+}
 
 /*utilities*/
 
@@ -116,34 +113,35 @@ h2 {
     font-size: var(--fs-h2);
     color: var(--clr-very-dark-blue);
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1;
     margin-bottom: 0.5em;
 }
 
 p {
     font-size: var(--fs-text);
+    line-height: 1.6;
 }
 
 .lead {
     font-size: var(--fs-lead);
     text-transform: uppercase;
-    letter-spacing: 5px;
-    margin-bottom: 0.5em;
+    letter-spacing: 5.5px;
+    margin-bottom: 0.8em;
 }
 
 .price {
     display: flex;
     place-items: center;
-    margin: 2em 0 1em;
+    margin: 1.4em 0 0.7em;
 }
 
-.new {
-    font-size: 2rem;
+.price__new {
+    font-size: var(--fs-h2);
     font-family: 'Fraunces', serif;
     color: var(--clr-cta);
 }
 
-.old {
+.price__old {
     font-size: var(--fs-text);
     text-decoration: line-through;
     margin-left: 1rem;
@@ -169,9 +167,9 @@ a:hover {
     align-self: start;
     justify-content: center;
     width: 100%;
-    min-height: 44px;
+    min-height: 48px;
     padding: 0.25em 1em;
-    transition: var(transition);
+    transition: var(--transition);
     border: 2px solid var(--clr-cta);
     border-radius: var(--border-radius);
     background-color: var(--clr-cta);
@@ -186,7 +184,7 @@ a:hover {
 }
 
 .icon {
-    background: url(/assets/images/icon-cart.svg) no-repeat left center;
+    background: url(../images/icon-cart.svg) no-repeat left center;
     height: 1rem;
     padding-left: 1.5rem;
 }
@@ -201,27 +199,37 @@ a:hover {
 .card {
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: min(100%, 38rem);
+    outline: 0.5rem solid var(--clr-light);
     border-radius: var(--border-radius);
     background-color: var(--clr-white);
 }
 
-.card__image img {
+.card>* {
+    flex-basis: 100%;
+}
+
+.card__image {
     width: 100%;
     min-height: 240px;
-    object-fit: cover;
-    border-radius: 0.5rem 0.5rem 0 0;
+    background: center / cover no-repeat url(../images/image-product-mobile.jpg);
 }
 
 .card__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
     padding: 1.5em;
 }
 
-/*# Front-end Style Guide
+@media screen and (min-width: 40rem) {
+    .card {
+        flex-direction: row;
+    }
 
-## Layout
-
-The designs were created to the following widths:
-
-- Mobile: 375px
-- Desktop: 1440px
+    .card__image {
+        min-height: 450px;
+        background: center / cover no-repeat url(../images/image-product-desktop.jpg);
+    }
+}
