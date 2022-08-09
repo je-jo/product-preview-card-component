@@ -57,6 +57,7 @@ img {
     --fs-small: 0.6875rem;
     --border-radius: 0.5rem;
     --transition: ease all .2s;
+    --min-col-width: 19rem;
 }
 
 /*layout*/
@@ -184,7 +185,7 @@ a:hover {
 }
 
 .icon {
-    background: url(https://raw.githubusercontent.com/je-jo/product-preview-card-component/00a7c89d17dfd3c299f26d141d81900e30ce7131/assets/images/icon-cart.svg) no-repeat left center;
+    background: url(../../assets/images/icon-cart.svg) no-repeat left center;
     height: 1rem;
     padding-left: 1.5rem;
 }
@@ -198,7 +199,7 @@ a:hover {
 
 .card {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     width: min(100%, 38rem);
     outline: 0.5rem solid var(--clr-light);
     border-radius: var(--border-radius);
@@ -206,13 +207,7 @@ a:hover {
 }
 
 .card>* {
-    flex-basis: 100%;
-}
-
-.card__image {
-    width: 100%;
-    min-height: 240px;
-    background: center / cover no-repeat url(https://raw.githubusercontent.com/je-jo/product-preview-card-component/main/assets/images/image-product-mobile.jpg);
+    flex: 1 1 var(--min-col-width);
 }
 
 .card__content {
@@ -221,15 +216,4 @@ a:hover {
     justify-content: space-between;
     height: 100%;
     padding: 1.5em;
-}
-
-@media screen and (min-width: 40rem) {
-    .card {
-        flex-direction: row;
-    }
-
-    .card__image {
-        min-height: 450px;
-        background: center / cover no-repeat url(https://raw.githubusercontent.com/je-jo/product-preview-card-component/main/assets/images/image-product-desktop.jpg);
-    }
 }
